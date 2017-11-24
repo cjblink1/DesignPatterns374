@@ -1,0 +1,25 @@
+@startuml
+object DataStandardizer
+interface ParseBehavior
+object MicrosoftParseBehavior
+object GoogleParseBehavior
+object AmazonParseBehavior
+
+DataStandardizer*--ParseBehavior
+ParseBehavior<|--MicrosoftParseBehavior
+ParseBehavior<|--GoogleParseBehavior
+ParseBehavior<|--AmazonParseBehavior
+
+DataStandardizer : performParse(path: String): void
+DataStandardizer : getCompany(): String
+DataStandardizer : getData(): String
+DataStandardizer : main(args: String[]): void
+
+ParseBehavior : parse(path: String): String
+
+MicrosoftParseBehavior : parse(path: String): String
+
+GoogleParseBehavior : parse(path: String): String
+
+AmazonParseBehavior : parse(path: String): String
+@enduml
